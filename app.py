@@ -32,21 +32,21 @@ def query_db(query, args=(), one=False):
 def home():
     # home page- just the ID, Maker, Model and Image URL
     sql = """
-                SELECT Ship.ShipID,Makers.Name,Ships.Model,Ships.ImageURL
-                FROM Ship
-                JOIN Makers ON Makers.MakerID=Ship.MakerID;"""
+                SELECT Car.CarID,Makers.Name,Car.Model,Car.ImageURL
+                FROM Car
+                JOIN Makers ON Makers.MakerID=Car.MakerID;"""
     results = query_db(sql)
     return render_template("home.html", results=results)
 
 
-@app.route("/ship/<int:id>")
+@app.route("/cars/<int:id>")
 def car(id):
     # just one car based on the id
-    sql = """SELECT * FROM Cars
-    JOIN Makers ON Makers.MakerID = Ship.MakerID
-    WHERE Ships.ShipID = ?;"""
+    sql = """SELECT * FROM Car
+    JOIN Makers ON Makers.MakerID = Car.MakerID
+    WHERE Car.CarID = ?;"""
     result = query_db(sql, (id,), True)
-    return render_template("ship.html", ship=result)
+    return render_template("car.html", car=result)
 
 
 if __name__ == "__main__":

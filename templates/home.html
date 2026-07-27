@@ -2,13 +2,13 @@
 {% block body %}
 <!-- home page goes here -->
  <!-- a 3 column grid -->
-  <div class="three column">
-    {% for ship in results %}
-    <a herf="{{ url_for('ship',id=ship[0]) }}">
+  <div class="three-column">
+    {% for car in results %}
+    <a href="{{ url_for('car', id=car[0]) }}">
         <div class="w3-card-4">
-            <!-- thename then the image -->
-            <h1>{{ ship[1] }} {{ ship[2] }}</h1>
-            <img src="{{ ship[3] }}" alt="{{ ship[2] }}">
+            <!-- the name then the image -->
+            <h1>{{ car[1] }} {{ car[2] }}</h1>
+            <img src="{{ car[3] }}" alt="{{ car[2] }}">
         </div>
     </a>
     {% endfor %}
