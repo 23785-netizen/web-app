@@ -39,7 +39,7 @@ def home():
     return render_template("home.html", results=results)
 
 
-@app.route("/cars/<int:id>")
+@app.route("/car/<int:id>")
 def car(id):
     # just one car based on the id
     sql = """SELECT * FROM Car
